@@ -6,13 +6,13 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-comm="""app.add_middleware(
+app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://enetyl.vercel.app"],  # Your Vercel frontend URL
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
-)"""
+)
 
 def init_db():
     conn = sqlite3.connect('downloads.db')
